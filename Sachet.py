@@ -12,20 +12,26 @@ class Sachet():
     def is_valid(self) : 
         t = ["pure", "mixte"] 
         tValid = self.type in t
+        gValid = True
+        cValid = False 
+        pValid = False
 
         if(self.type in t == "pure") : 
-            self.liste_grains.len = 1
-            self.compo_grains = 100 
+            if(self.liste_grains.len != 1): 
+                gValid = False
+            if(self.compo_grains == 100) : 
+                cValid = True
+
         
-        pValid = False
+        
         if(self.poids >= 500 and self.poids <= 2000 and self.poids % 500 == 0) : 
             pValid = True
         
-        cValid = False 
+        
         
         if (sum(self.compo_grains) == 100) :
             cValid = True 
 
-        return tValid and pValid and cValid
+        return tValid and pValid and cValid and gValid
     
         
