@@ -16,7 +16,8 @@ class Grain() :
         if (isinstance(self.recolte, int) and (self.recolte%5 != 0)) : 
             rVerif = True
         cVerif = False 
-        if (self.corps in range.choice(range(1, 9))): 
+        #pour prendre en compte 1 et 9 dans les bornes 
+        if (self.corps in range(0, 10)): 
             cVerif = True
 
         return oVerif and aVerif and rVerif and cVerif
